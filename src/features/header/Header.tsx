@@ -34,7 +34,7 @@ function HeaderInner() {
   const progress = total === 0 ? 0 : learned / total;
 
   return (
-    <header className="glass flex flex-col gap-3 rounded-2xl p-4 lg:p-5">
+    <header className="glass flex flex-col gap-2.5 rounded-2xl p-3 lg:gap-3 lg:p-5">
       <div className="flex flex-wrap items-center justify-between gap-3">
         <div className="flex items-center gap-3 min-w-0">
           <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-br from-primary to-accent text-primary-foreground shadow-lg shadow-primary/30">
@@ -68,7 +68,7 @@ function HeaderInner() {
         </div>
       </div>
 
-      <div className="flex flex-wrap items-center gap-2.5">
+      <div className="flex flex-wrap items-center gap-1.5 lg:gap-2.5">
         <StatCard
           icon={Timer}
           label="Timer"
@@ -82,6 +82,7 @@ function HeaderInner() {
           value={formatPercent(progress, 0)}
           hint={`${learned} / ${total || "—"} words`}
           tone="accent"
+          className="hidden lg:flex"
         />
         <StatCard
           icon={CheckCircle2}

@@ -9,6 +9,7 @@ interface StatCardProps {
   value: ReactNode;
   hint?: string;
   tone?: "default" | "success" | "destructive" | "accent";
+  className?: string;
 }
 
 const toneMap: Record<NonNullable<StatCardProps["tone"]>, string> = {
@@ -18,24 +19,37 @@ const toneMap: Record<NonNullable<StatCardProps["tone"]>, string> = {
   accent: "text-accent",
 };
 
-function StatCardInner({ icon: Icon, label, value, hint, tone = "default" }: StatCardProps) {
+function StatCardInner({
+  icon: Icon,
+  label,
+  value,
+  hint,
+  tone = "default",
+  className,
+}: StatCardProps) {
   return (
     <motion.div
       layout
       initial={{ opacity: 0, y: 6 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.28, ease: [0.2, 0.6, 0.2, 1] }}
-      className="glass flex min-w-[120px] flex-1 items-center gap-3 rounded-xl px-3 py-2.5"
+      className={cn(
+        "glass flex flex-1 items-center gap-2 rounded-lg px-2.5 py-1.5 lg:min-w-[120px] lg:gap-3 lg:rounded-xl lg:px-3 lg:py-2.5",
+        className,
+      )}
+      title={label}
     >
-      <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-secondary/70">
-        <Icon className={cn("h-4 w-4", toneMap[tone])} />
+      <div className="flex h-6 w-6 shrink-0 items-center justify-center rounded-md bg-secondary/70 lg:h-8 lg:w-8 lg:rounded-lg">
+        <Icon className={cn("h-3.5 w-3.5 lg:h-4 lg:w-4", toneMap[tone])} />
       </div>
       <div className="min-w-0 leading-tight">
-        <p className="truncate text-[10px] font-medium uppercase tracking-wider text-muted-foreground">
+        <p className="hidden truncate text-[10px] font-medium uppercase tracking-wider text-muted-foreground lg:block">
           {label}
         </p>
-        <p className={cn("text-base font-semibold tabular-nums", toneMap[tone])}>{value}</p>
-        {hint && <p className="text-[10px] text-muted-foreground">{hint}</p>}
+        <p className={cn("text-sm font-semibold tabular-nums lg:text-base", toneMap[tone])}>
+          {value}
+        </p>
+        {hint && <p className="hidden text-[10px] text-muted-foreground lg:block">{hint}</p>}
       </div>
     </motion.div>
   );
