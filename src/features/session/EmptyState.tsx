@@ -16,11 +16,11 @@ export function EmptyState() {
           <Sparkles className="h-5 w-5" />
         </div>
         <h2 className="text-2xl font-semibold tracking-tight text-balance">
-          Pick a vocabulary pack to start a focused 30-minute session.
+          Pick a pack to start a focused 30-minute session.
         </h2>
         <p className="mt-2 text-sm text-muted-foreground">
-          Lexitrain quietly tracks every word you know, surfaces the ones you don't, and
-          keeps the rhythm engaging.
+          Choose a Vocabulary pack or a KPSS topic. Lexitrain quietly tracks what you
+          know, surfaces what you don't, and keeps the rhythm engaging.
         </p>
         <div className="mt-6 grid gap-3 sm:grid-cols-3">
           <Feature icon={Compass} title="Adaptive">
@@ -30,7 +30,7 @@ export function EmptyState() {
             One focused session. Or keep drilling once you hit 100%.
           </Feature>
           <Feature icon={Zap} title="Offline-first">
-            All vocabulary is local. Refreshing keeps your progress.
+            All content is local. Refreshing keeps your progress.
           </Feature>
         </div>
       </Card>

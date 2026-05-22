@@ -1,0 +1,422 @@
+[
+  {
+    "id": "kpss_io_001",
+    "question": "Tarihte bilinen ilk Türk boyu olan, 'Bozkırın Kuyumcuları' unvanıyla tanınan ve Alper Tunga ile Tomris Hatun gibi önemli liderlere sahip olan topluluk aşağıdakilerden hangisidir?",
+    "choices": [
+      "Asya Hunları",
+      "İskitler (Sakalar)",
+      "Avarlar",
+      "Kumanlar",
+      "Hazarlar"
+    ],
+    "correctAnswer": "İskitler (Sakalar)",
+    "explanation": "İskitler (Sakalar) tarihte bilinen ilk Türk boyudur. Sanattaki ustalıkları nedeniyle Bozkırın Kuyumcuları olarak anılırlar. Tomris Hatun ise bilinen ilk kadın hükümdardır.",
+    "difficulty": 1
+  },
+  {
+    "id": "kpss_io_002",
+    "question": "Asya Hun Devleti'nde ilk kez düzenli orduyu kuran, onlu sistemi ordu teşkilatına kazandıran ve tüm Türk boylarını ilk kez tek bir bayrak altında toplayan hükümdar aşağıdakilerden hangisidir?",
+    "choices": [
+      "Teoman",
+      "Bumin Kağan",
+      "Mete Han",
+      "Kutluk Kağan",
+      "Mukan Kağan"
+    ],
+    "correctAnswer": "Mete Han",
+    "explanation": "Asya Hun Devleti'nin en parlak dönemi Mete Han dönemidir. Bulduğu onlu sistem günümüzde de modern orduların temelini oluşturur. Türk siyasi birliğini ilk kez sağlamıştır.",
+    "difficulty": 1
+  },
+  {
+    "id": "kpss_io_003",
+    "question": "Balamir önderliğinde başlayan Kavimler Göçü'nün aşağıdaki sonuçlarından hangisi Avrupa'nın sosyo-ekonomik ve siyasi yapısını doğrudan değiştirerek feodalite (derebeylik) rejiminin ortaya çıkmasına zemin hazırlamıştır?",
+    "choices": [
+      "İlk Çağ'ın kapanıp Orta Çağ'ın başlaması",
+      "Roma İmparatorluğu'nun ikiye ayrılması ve Batı Roma'nın yıkılması",
+      "Avrupa'da Hristiyanlığın ve kilisenin güç kazanması",
+      "Merkezi krallıkların zayıflamasıyla halkın himayesine sığındığı yerel senyörlerin güçlenmesi",
+      "Avrupa Hun Devleti'nin kurulması"
+    ],
+    "correctAnswer": "Merkezi krallıkların zayıflamasıyla halkın himayesine sığındığı yerel senyörlerin güçlenmesi",
+    "explanation": "Kavimler Göçü'nün yarattığı karmaşada merkezi krallıklar halkı koruyamayınca, halk kalelere ve yerel beylere (senyör) sığınmıştır. Bu durum feodalite rejimini doğrudan doğurmuştur.",
+    "difficulty": 2
+  },
+  {
+    "id": "kpss_io_004",
+    "question": "İslamiyet öncesi Türk devletlerinde devleti yönetme yetkisinin hükümdara Gök Tanrı tarafından verildiğine inanılan anlayış aşağıdakilerden hangisidir?",
+    "choices": [
+      "Kut",
+      "Töre",
+      "Kurultay",
+      "Ülüş",
+      "Toy"
+    ],
+    "correctAnswer": "Kut",
+    "explanation": "Kut inancı, egemenliğin ilahi kaynaklı olduğunu savunur. Bu yetki kan yoluyla hanedanın tüm erkek üyelerine geçtiği için sık sık taht kavgalarına neden olmuştur.",
+    "difficulty": 1
+  },
+  {
+    "id": "kpss_io_005",
+    "question": "İslamiyet öncesi Türk devletlerinde devlet işlerinin görüşülüp karara bağlandığı Kurultay (Toy) meclisi ile ilgili aşağıdaki bilgilerden hangisi bu meclisin temelde bir 'danışma meclisi' niteliğinde olduğunu kanıtlar?",
+    "choices": [
+      "Meclise boy beylerinin de katılması",
+      "Hükümdarın eşi Hatun'un mecliste yer alması",
+      "Son sözün her zaman hükümdara ait olması",
+      "Yılda en az iki kez toplanma zorunluluğunun bulunması",
+      "Hükümdar seçiminde etkili olması"
+    ],
+    "correctAnswer": "Son sözün her zaman hükümdara ait olması",
+    "explanation": "Bir mecliste kararlar tartışılabiliyor ancak son karar yetkisi tek bir kişiye (hükümdara) ait oluyorsa, o meclis yapısal olarak danışma meclisi özelliğindedir.",
+    "difficulty": 2
+  },
+  {
+    "id": "kpss_io_006",
+    "question": "Eski Türk devletlerinde hukukun temelini oluşturan, yazısız olan ve hükümdar dahil herkesin uymak zorunda olduğu kurallar bütününe ne ad verilir?",
+    "choices": [
+      "Yarlık",
+      "Töre",
+      "Kengeş",
+      "Bitikçi",
+      "Tiggin"
+    ],
+    "correctAnswer": "Töre",
+    "explanation": "Töre, Türklerin yazısız hukuk kurallarıdır. Örf, adet ve kurultay kararlarından beslenir. Hükümdarın dahi töreye uymak zorunda olması, Türklerde kanun üstünlüğü anlayışının erken dönemde de var olduğunu gösterir.",
+    "difficulty": 1
+  },
+  {
+    "id": "kpss_io_007",
+    "question": "Tarihte 'Türk' adını ilk kez resmi bir devlet ismi olarak kullanan ve Bumin Kağan tarafından Ötüken merkezli kurulan devlet aşağıdakilerden hangisidir?",
+    "choices": [
+      "Asya Hun Devleti",
+      "I. Göktürk Devleti",
+      "II. Göktürk Devleti",
+      "Uygur Devleti",
+      "Kırgız Devleti"
+    ],
+    "correctAnswer": "I. Göktürk Devleti",
+    "explanation": "I. Göktürk Devleti, Türk adını siyasi bir kimlik olarak ilk kez devlet ismi içerisinde kullanan ve milliyetçi/ulusçu yapısıyla öne çıkan devlettir.",
+    "difficulty": 1
+  },
+  {
+    "id": "kpss_io_008",
+    "question": "I. Göktürk Devleti'nin Çin esaretine girdiği dönemde, Türk tarihinin Çin baskısına karşı ilk bağımsızlık mücadelesi olarak kabul edilen ve sembolleşen ayaklanma aşağıdakilerden hangisidir?",
+    "choices": [
+      "Baga Tarkan İsyanı",
+      "Kürşat Ayaklanması",
+      "Böğü Kağan İsyanı",
+      "Bayan Han İsyanı",
+      "Boy boylarının isyanı"
+    ],
+    "correctAnswer": "Kürşat Ayaklanması",
+    "explanation": "Kürşat ve 40 arkadaşının Çin sarayını basarak bağımsızlığı ilan etme girişimi başarısızlıkla sonuçlansa da Türkler arasında bağımsızlık ateşini körükleyen ilk milliyetçi isyandır.",
+    "difficulty": 2
+  },
+  {
+    "id": "kpss_io_009",
+    "question": "Çin esaretine son vererek II. Göktürk Devleti'ni kuran ve devleti derleyip toplayan anlamına gelen 'İlteriş' unvanını alan Türk hükümdarı kimdir?",
+    "choices": [
+      "Kutluk Kağan",
+      "Kapgan Kağan",
+      "Bilge Kağan",
+      "Mukan Kağan",
+      "Bumin Kağan"
+    ],
+    "correctAnswer": "Kutluk Kağan",
+    "explanation": "Kutluk Kağan, esarete son vererek devleti yeniden kurduğu için II. Göktürk Devleti onun adıyla (Kutluk Devleti) da anılır. Kendisine bu başarısından dolayı 'İlteriş' denmiştir.",
+    "difficulty": 2
+  },
+  {
+    "id": "kpss_io_010",
+    "question": "Türk tarihinin ve edebiyatının ilk yazılı kaynakları kabul edilen, II. Göktürk dönemine ait olan ve Danimarkalı dilbilimci W. Thomsen tarafından okunan abide aşağıdakilerden hangisidir?",
+    "choices": [
+      "Yenisey Yazıtları",
+      "Karabalgasun Yazıtları",
+      "Orhun Abideleri",
+      "Sine Usu Yazıtları",
+      "Bugut Yazıtı"
+    ],
+    "correctAnswer": "Orhun Abideleri",
+    "explanation": "Orhun Abideleri (Yazıtları) Bilge Kağan, Kültigin ve Vezir Tonyukuk adına dikilmiştir. Sosyal devlet anlayışından ve siyasi tecrübelerden bahseden ilk yazılı metinlerimizdir.",
+    "difficulty": 1
+  },
+  {
+    "id": "kpss_io_011",
+    "question": "Böğü Kağan döneminde Maniheizm inancını benimseyerek yerleşik hayata geçen, göçebe yaşam tarzını terk edip tarım ve mimaride ilk kalıcı eserleri bırakan Türk devleti aşağıdakilerden hangisidir?",
+    "choices": [
+      "Uygurlar",
+      "Karluklar",
+      "Kırgızlar",
+      "Türgişler",
+      "Hazarlar"
+    ],
+    "correctAnswer": "Uygurlar",
+    "explanation": "Uygurlar, Maniheizm dininin etkisiyle (et yemeyi ve savaşmayı yasaklaması nedeniyle) yerleşik hayata geçmiş, saraylar, tapınaklar inşa edip tarımla uğraşmışlardır.",
+    "difficulty": 1
+  },
+  {
+    "id": "kpss_io_012",
+    "question": "Uygurların benimsediği Maniheizm dininin Türk toplumsal yapısı üzerindeki olumsuz etkisi aşağıdakilerden hangisinde doğru verilmiştir?",
+    "choices": [
+      "Ticari faaliyetlerin durması",
+      "Yazılı hukuk kurallarının terk edilmesi",
+      "Askeri ve savaşçılık özelliklerinin zayıflaması",
+      "Matbaanın kullanımının yasaklanması",
+      "Merkezi otoritenin tamamen yok olması"
+    ],
+    "correctAnswer": "Askeri ve savaşçılık özelliklerinin zayıflaması",
+    "explanation": "Maniheizm dini et yemeyi ve kan dökmeyi yasakladığı için, Türklerin en belirgin özelliği olan askeri ve savaşçılık yeteneklerinin zayıflamasına yol açmıştır.",
+    "difficulty": 2
+  },
+  {
+    "id": "kpss_io_013",
+    "question": "Hem Orta Asya'da hem de Avrupa'da devlet kuran, Hristiyanlığı kabul eden ve İstanbul'u tarihte ilk kez kuşatan Türk devleti aşağıdakilerden hangisidir?",
+    "choices": [
+      "Peçenekler",
+      "Avarlar",
+      "Bulgarlar",
+      "Hunlar",
+      "Hazarlar"
+    ],
+    "correctAnswer": "Avarlar",
+    "explanation": "Avarlar, Sasaniler ile ittifak yaparak İstanbul'u iki kez kuşatmışlardır. Avrupa'ya üzengi kullanımını ve ordu teşkilatlanmasını öğretmişlerdir.",
+    "difficulty": 2
+  },
+  {
+    "id": "kpss_io_014",
+    "question": "Museviliği (Yahudilik) resmi din olarak benimseyen tek Türk devleti olan, ordusunda ücretli asker bulunduran ve Kafkaslar'da Müslüman Araplarla (Belencer Savaşı) savaşarak İslamiyet'in Rusya'ya yayılmasını geciktiren devlet hangisidir?",
+    "choices": [
+      "Türgişler",
+      "Hazarlar",
+      "İtil Bulgarları",
+      "Karluklar",
+      "Kırgızlar"
+    ],
+    "correctAnswer": "Hazarlar",
+    "explanation": "Hazarlar Museviliği seçen tek Türk devletidir. Güçlü ekonomileri sayesinde ordularında ücretli asker taşımışlardır ve Hz. Osman döneminde Müslüman Araplarla savaşmışlardır.",
+    "difficulty": 3
+  },
+  {
+    "id": "kpss_io_015",
+    "question": "751 Talas Savaşı'nda Çin'e karşı Müslüman Arapların (Abbasiler) yanında yer alarak savaşın kazanılmasını sağlayan ve İslamiyet'i kabul eden ilk Türk boyu aşağıdakilerden hangisidir?",
+    "choices": [
+      "Oğuzlar",
+      "Karluklar",
+      "Yağmalar",
+      "Çiğiller",
+      "Kıpçaklar"
+    ],
+    "correctAnswer": "Karluklar",
+    "explanation": "Karluklar, Talas Savaşı'nda Müslümanların safına geçerek Türk-İslam tarihinin başlamasına öncülük etmiş ve İslamiyet'i benimseyen ilk Türk boyu olmuşlardır.",
+    "difficulty": 1
+  },
+  {
+    "id": "kpss_io_016",
+    "question": "Emeviler ile Haristan Savaşı'nı yaparak İslamiyet'in Orta Asya'ya girmesini engelleyen ve hükümdarı Baga Tarkan adına ilk kez kendi madeni parasını bastıran Türk devleti hangisidir?",
+    "choices": [
+      "Türgişler",
+      "Hazarlar",
+      "Akhunlar",
+      "Kırgızlar",
+      "Uygurlar"
+    ],
+    "correctAnswer": "Türgişler",
+    "explanation": "Türgişler, Emevilerin ırkçı (mevali) politikalarına karşı Orta Asya'yı savunmuşlardır. Baga Tarkan ise Türk tarihinde kendi adına para bastıran ilk hükümdardır.",
+    "difficulty": 2
+  },
+  {
+    "id": "kpss_io_017",
+    "question": "840 yılında Uygur Devleti'ni yıkarak Ötüken'de kurulan, dünyaca ünlü Manas Destanı'nı ve Yenisey Yazıtları'nı oluşturan Türk topluluğu aşağıdakilerden hangisidir?",
+    "choices": [
+      "Kumanlar",
+      "Kırgızlar",
+      "Peçenekler",
+      "Bulgarlar",
+      "Başkurtlar"
+    ],
+    "correctAnswer": "Kırgızlar",
+    "explanation": "Kırgızlar, Uygurları yıkarak kutsal merkez Ötüken'e sahip olan son Türk devletidir. Manas Destanı canlı (hâlâ yazılmaya devam eden) ve dünyanın en uzun destanıdır.",
+    "difficulty": 1
+  },
+  {
+    "id": "kpss_io_018",
+    "question": "Karadeniz'in kuzeyinde yaşamış, bağımsız bir devlet kuramayıp Bizans ordusunda ücretli askerlik yapmış olan ve 1071 Malazgirt Savaşı'nda Selçuklu safına geçerek savaşın kaderini değiştiren Türk boyu hangisidir?",
+    "choices": [
+      "Kıpçaklar",
+      "Peçenekler",
+      "Uzlar",
+      "Avarlar",
+      "Hazarlar"
+    ],
+    "correctAnswer": "Peçenekler",
+    "explanation": "Peçenekler teşkilatlı bir devlet kuramamış, boylar halinde yaşamışlardır. Malazgirt Savaşı'nda karşı ordunun da Türk (Selçuklu) olduğunu anlayınca saf değiştirmişlerdir. (Uzlar ile birlikte)",
+    "difficulty": 2
+  },
+  {
+    "id": "kpss_io_019",
+    "question": "Almış Han döneminde İslamiyet'i resmi din olarak kabul eden ve Doğu Avrupa'da/Rusya'da İslamiyet'in ilk temsilcisi olan Türk devleti aşağıdakilerden hangisidir?",
+    "choices": [
+      "İtil (Volga) Bulgarları",
+      "Tuna Bulgarları",
+      "Karahanlılar",
+      "Hazarlar",
+      "Karluklar"
+    ],
+    "correctAnswer": "İtil (Volga) Bulgarları",
+    "explanation": "KPSS'de sıkça sorulan bir ayrımdır: Orta Asya'da İslamiyet'i kabul eden ilk büyük devlet Karahanlılar iken, Avrupa'da/Doğu Avrupa'da ilk kabul eden devlet İtil Bulgarları'dır.",
+    "difficulty": 3
+  },
+  {
+    "id": "kpss_io_020",
+    "question": "Türklerin en kalabalık, en aktif ve hem Büyük Selçuklu hem de Osmanlı İmparatorluğu'nun kurucu unsuru olan ana kolu aşağıdakilerden hangisidir?",
+    "choices": [
+      "Kıpçaklar",
+      "Oğuzlar (Uzlar)",
+      "Karluklar",
+      "Kırgızlar",
+      "Avarlar"
+    ],
+    "correctAnswer": "Oğuzlar (Uzlar)",
+    "explanation": "Oğuzlar, Türk milletinin en büyük ve en çok devlet kuran koludur. Hristiyan olanlarına Uz, Müslüman olanlarına ise Türkmen denmiştir.",
+    "difficulty": 1
+  },
+  {
+    "id": "kpss_io_021",
+    "question": "İslamiyet öncesi Türk devletlerinde ölen kişilerin değerli eşyaları, silahları ve atı ile birlikte gömüldüğü oda şeklindeki mezarlara ne ad verilir?",
+    "choices": [
+      "Kurgan",
+      "Balbal",
+      "Yuğ",
+      "Sagu",
+      "Stupa"
+    ],
+    "correctAnswer": "Kurgan",
+    "explanation": "Kurgan adı verilen oda mezarlara eşyalarla gömülme geleneği, eski Türklerde ölümden sonraki yaşama yani 'Ahiret İnancı'na sahip olunduğunun kesin bir kanıtıdır.",
+    "difficulty": 1
+  },
+  {
+    "id": "kpss_io_022",
+    "question": "Eski Türklerde ölen bir savaşçının mezarının (kurganının) başına, hayattayken öldürdüğü düşman sayısı kadar dikilen ve Türk heykel sanatının ilk örnekleri sayılan taşlara ne ad verilir?",
+    "choices": [
+      "Yuğ",
+      "Kurgan",
+      "Balbal",
+      "Sagu",
+      "Kitabe"
+    ],
+    "correctAnswer": "Balbal",
+    "explanation": "Balballar heykel niteliğindedir. İnanca göre bu taşlar ahirette dirilecek ve o savaşçıya hizmet edecektir. Bu yönüyle ahiret inancını da destekler.",
+    "difficulty": 2
+  },
+  {
+    "id": "kpss_io_023",
+    "question": "Eski Türk toplumlarında cenaze törenlerine genel olarak verilen isim ile bu törenlerde ölen kişinin ardından yakılan ağıtlara verilen isim sırasıyla hangisidir?",
+    "choices": [
+      "Yuğ - Sagu",
+      "Kurgan - Balbal",
+      "Toy - Koşuk",
+      "Kengeş - Sav",
+      "Yuğ - Sav"
+    ],
+    "correctAnswer": "Yuğ - Sagu",
+    "explanation": "Cenaze törenlerine 'Yuğ', bu törenlerde söylenen şiirsel ağıtlara ise 'Sagu' denir. Günümüz halk edebiyatındaki karşılığı 'Ağıt', Divan edebiyatındaki karşılığı ise 'Mersiye'dir.",
+    "difficulty": 1
+  },
+  {
+    "id": "kpss_io_024",
+    "question": "Gök Tanrı ve Şamanizm inanç sisteminde dini törenleri yöneten, aynı zamanda şifacı veya büyücü olduğuna inanılan din adamlarına verilen unvan aşağıdakilerden hangisidir?",
+    "choices": [
+      "Toygun",
+      "Kam / Baksı",
+      "Aygucı",
+      "Tiggin",
+      "Subaşı"
+    ],
+    "correctAnswer": "Kam / Baksı",
+    "explanation": "Eski Türklerde din adamlarına Kam, Baksı veya Şaman denirdi. Türklerde teokratik (dini) bir devlet yapısı olmadığı için din adamlarının siyasi yetkileri yoktu.",
+    "difficulty": 2
+  },
+  {
+    "id": "kpss_io_025",
+    "question": "Hükümdarın erkek çocuklarına (Tiggin) devlet yönetimi ve askeri konularda deneyim kazandırmak amacıyla onlara hocalık yapan eğitmenlere verilen unvan aşağıdakilerden hangisidir?",
+    "choices": [
+      "Lala",
+      "Atabey",
+      "İnal / Ataman",
+      "Aygucı",
+      "Buyruk"
+    ],
+    "correctAnswer": "İnal / Ataman",
+    "explanation": "İslam öncesinde 'İnal', 'İnanç' veya 'Ataman' denilen bu eğitmenler, Selçuklularda 'Atabey', Osmanlılarda ise 'Lala' adını almıştır. Soru kökündeki dönem ayrımına dikkat edilmelidir.",
+    "difficulty": 2
+  },
+  {
+    "id": "kpss_io_026",
+    "question": "Eski Türk devletlerinde hükümdarın eşi olan Hatun'un (Katun) kurultaya katılması, elçileri kabul etmesi ve hükümdar olmadığında devlete başkanlık etmesi aşağıdakilerden hangisinin bir göstergesidir?",
+    "choices": [
+      "Kut inancının sadece kadınlara ait olduğunun",
+      "Kadının siyasi ve yönetimsel alanda söz sahibi olduğunun",
+      "Ülkede anaerkil bir aile yapısının bulunduğunun",
+      "Kurultayın sadece kadınlardan oluştuğunun",
+      "Töre kurallarının hatun tarafından değiştirildiğinin"
+    ],
+    "correctAnswer": "Kadının siyasi ve yönetimsel alanda söz sahibi olduğunun",
+    "explanation": "Hatun'un devlet işlerinde imza yetkisinin olması, elçi kabul etmesi ve Kurultay'a katılması kadının yönetimde ve siyasi mekanizmada yüksek bir statüye sahip olduğunu gösterir.",
+    "difficulty": 1
+  },
+  {
+    "id": "kpss_io_027",
+    "question": "İslamiyet öncesi Türk devlet teşkilatında hükümet başkanına (Vezir) verilen unvan aşağıdakilerden hangisidir?",
+    "choices": [
+      "Aygucı (Üge)",
+      "Buyruk",
+      "Bitikçi",
+      "Tamgacı",
+      "Apa"
+    ],
+    "correctAnswer": "Aygucı (Üge)",
+    "explanation": "Hükümdar devletin başıdır, hükümetin (Ayukı) başında ise Başbakan/Vezir konumunda olan 'Aygucı' veya 'Üge' yer alır. Buyruk ise bakan demektir.",
+    "difficulty": 2
+  },
+  {
+    "id": "kpss_io_028",
+    "question": "Uygurlarda ticari hayatta kullanılan, devlet mühürlü kumaş paralara verilen isim aşağıdakilerden hangisidir?",
+    "choices": [
+      "Yarmak",
+      "Böz / Kuanto",
+      "Çav",
+      "Dinar",
+      "Akçe"
+    ],
+    "correctAnswer": "Böz / Kuanto",
+    "explanation": "Uygurlar madeni para olan 'Yarmak' dışında, 'Böz' ve 'Kuanto' adı verilen mühürlü kumaş paraları da ticarette değişim aracı olarak kullanmışlardır. 'Çav' ise Moğollarda ve daha geç dönem Uygurlarda görülen kağıt paradır.",
+    "difficulty": 3
+  },
+  {
+    "id": "kpss_io_029",
+    "question": "Eski Türklerde devlet yönetimindeki yüksek kurultay üyelerine, boy beylerine ve meclise katılma hakkı olan devlet görevlilerine genel olarak verilen unvan hangisidir?",
+    "choices": [
+      "Toygun",
+      "Tarkan",
+      "Yargucı",
+      "Yabgu",
+      "Şad"
+    ],
+    "correctAnswer": "Toygun",
+    "explanation": "Kurultayın diğer adı 'Toy'dur. Toy'a katılan, o meclisin üyesi olan kişilere ise 'Toygun' (Toy'a ait/üye) adı verilir.",
+    "difficulty": 3
+  },
+  {
+    "id": "kpss_io_030",
+    "question": "Rusların ünlü 'İgor Destanı'na ve Türk kültüründeki 'Dede Korkut Hikayeleri'ne konu olan, Avrupa'da 'Kumanlar' olarak bilinen ve 'Codex Cumanicus' adlı bir sözlük bırakan Türk boyu hangisidir?",
+    "choices": [
+      "Kıpçaklar",
+      "Oğuzlar",
+      "Peçenekler",
+      "Kırgızlar",
+      "Karluklar"
+    ],
+    "correctAnswer": "Kıpçaklar",
+    "explanation": "Kıpçaklar (Kumanlar) sarı saçlı, mavi gözlü olmalarıyla bilinir. Karadeniz'in kuzeyinde Deşt-i Kıpçak bölgesinde yaşamışlar, Ruslarla mücadeleleri İgor Destanı'na konu olmuştur. Codex Cumanicus ise onların ünlü sözlüğüdür.",
+    "difficulty": 2
+  }
+]

@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useState } from "react";
 
-import { findPack } from "@/data/manifest";
+import { findPack } from "@/vocabulary/manifest";
 import { useSessionStore } from "@/store/session";
 import type { VocabularyWord } from "@/types";
 

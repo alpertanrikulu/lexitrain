@@ -28,7 +28,8 @@ Vercel free tier as a static site.
   prefers-reduced-motion-friendly defaults via subtle transitions only.
 - **Lazy-loaded data** — each pack is its own JSON file, code-split by Vite via
   `import.meta.glob`, fetched only when you select it.
-- **Zero backend** — vocabulary lives in `/src/data/<level>/<pack>.json`.
+- **Zero backend** — vocabulary lives in `/src/vocabulary/<level>/<pack>.json`
+  and KPSS question sets in `/src/questions/history/<topic>.json`.
 
 ---
 
@@ -53,12 +54,14 @@ configures the rewrite + static cache headers.
 src/
 ├── components/            # shadcn-style primitives & ErrorBoundary
 │   └── ui/
-├── data/                  # vocabulary JSON, grouped by CEFR level
+├── vocabulary/            # vocabulary JSON, grouped by CEFR level
 │   ├── a1/ … c2/
-│   └── manifest.ts        # pack registry + lazy loaders
+│   └── manifest.ts        # pack registry + lazy loaders (vocabulary + KPSS)
+├── questions/             # KPSS multiple-choice question sets
+│   └── history/           # one JSON per topic, auto-discovered
 ├── features/              # composed app features
 │   ├── header/            # session timer, stats, theme toggle
-│   ├── sidebar/           # CEFR-grouped pack list with search & progress
+│   ├── sidebar/           # category-grouped pack list with search & progress
 │   ├── study/             # WordCard, batch workspace, tabbed shell
 │   ├── results/           # post-batch review panel
 │   └── session/           # empty state + summary dialog
@@ -158,9 +161,14 @@ totalling ~900 entries) as a real starting corpus. The architecture loads
 each pack lazily and is pack-size-agnostic — to scale up to the full 200
 words/pack target, simply extend the JSON files or drop in a generator.
 
-The pack manifest (`src/data/manifest.ts`) declares titles, subtitles, and CEFR
-level for each pack. New packs are picked up automatically by the glob loader
-(`import.meta.glob("./*/*.json")`).
+The pack manifest (`src/vocabulary/manifest.ts`) declares titles, subtitles, and
+CEFR level for each vocabulary pack. New vocabulary packs are picked up by the
+glob loader (`import.meta.glob("./*/*.json")`).
+
+KPSS topics are fully auto-discovered: drop a new `*.json` into
+`src/questions/history/` and it appears as a selectable topic under the **KPSS**
+section — no manifest edit required. Each KPSS entry has the shape
+`{ id, question, choices[], correctAnswer, explanation, difficulty }`.
 
 ---
 

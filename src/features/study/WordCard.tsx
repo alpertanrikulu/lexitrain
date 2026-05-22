@@ -17,6 +17,8 @@ interface WordCardProps {
   answered: boolean;
   /** Pre-selected meaning to restore after a page reload mid-batch. */
   preselectedMeaning?: string | null;
+  /** Reveal the choices without requiring a tap (used to flow to the next card). */
+  autoReveal?: boolean;
   onAnswer: (
     outcome: "correct" | "wrong" | "skipped",
     selectedMeaning: string | null,
@@ -31,6 +33,7 @@ function WordCardInner({
   total,
   answered,
   preselectedMeaning,
+  autoReveal,
   onAnswer,
 }: WordCardProps) {
   const [revealed, setRevealed] = useState(false);
@@ -56,6 +59,17 @@ function WordCardInner({
   };
 
   const isLocked = answered || chosen !== null;
+  const isQuestion = Array.isArray(word.choices) && word.choices.length > 0;
+  const showOptions = revealed || isLocked || !!autoReveal;
+  const promptHint = isLocked
+    ? "Answered"
+    : showOptions
+      ? isQuestion
+        ? "Choose the correct answer"
+        : "Choose the meaning"
+      : isQuestion
+        ? "Tap to reveal choices"
+        : "Tap to choose meaning";
 
   return (
     <Card className="relative overflow-hidden">
@@ -76,19 +90,27 @@ function WordCardInner({
           onClick={() => !isLocked && setRevealed(true)}
           disabled={isLocked}
           className={cn(
-            "group relative w-full select-none rounded-2xl border border-border/70 bg-gradient-to-br from-secondary/40 to-secondary/10 px-6 py-8 text-left transition-all focus-ring",
+            "group relative w-full select-none rounded-2xl border border-border/70 bg-gradient-to-br from-secondary/40 to-secondary/10 text-left transition-all focus-ring",
+            isQuestion ? "px-5 py-5" : "px-6 py-8",
             !isLocked && "hover:from-secondary/70 hover:to-secondary/30 hover:border-primary/40",
             isLocked && "cursor-default",
           )}
           aria-label={`Reveal options for "${word.word}"`}
         >
-          <p className="text-[11px] uppercase tracking-widest text-muted-foreground">
-            Tap to choose meaning
+          <p className="pr-20 text-[11px] uppercase tracking-widest text-muted-foreground">
+            {promptHint}
           </p>
-          <p className="mt-2 text-4xl font-bold tracking-tight text-balance lg:text-5xl">
+          <p
+            className={cn(
+              "mt-2 font-bold tracking-tight",
+              isQuestion
+                ? "text-base font-semibold leading-relaxed text-pretty sm:text-lg"
+                : "text-4xl text-balance lg:text-5xl",
+            )}
+          >
             {word.word}
           </p>
-          {!revealed && !isLocked && (
+          {!showOptions && (
             <span className="absolute right-4 top-4 flex h-7 items-center gap-1.5 rounded-full bg-primary/15 px-2.5 text-[11px] font-medium text-primary">
               <HelpCircle className="h-3 w-3" /> Reveal
             </span>
@@ -101,7 +123,7 @@ function WordCardInner({
         </button>
 
         <AnimatePresence initial={false} mode="wait">
-          {(revealed || isLocked) && (
+          {showOptions && (
             <motion.div
               key="options"
               initial={{ opacity: 0, height: 0 }}
@@ -110,7 +132,7 @@ function WordCardInner({
               transition={{ duration: 0.22, ease: [0.2, 0.6, 0.2, 1] }}
               className="overflow-hidden"
             >
-              <div className="grid gap-2 md:grid-cols-2">
+              <div className={cn("grid gap-2", !isQuestion && "md:grid-cols-2")}>
                 {options.map((opt, i) => {
                   const isChosen = chosen === opt;
                   const isDimmed = chosen !== null && !isChosen;
@@ -133,7 +155,7 @@ function WordCardInner({
                           isDimmed && "opacity-40",
                         )}
                       >
-                        <span className="line-clamp-2">{opt}</span>
+                        <span className={cn(!isQuestion && "line-clamp-2")}>{opt}</span>
                       </button>
                     </motion.div>
                   );

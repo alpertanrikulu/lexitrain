@@ -20,6 +20,19 @@ function ResultPanelInner({ answers }: Props) {
         const correct = a.outcome === "correct";
         const skipped = a.outcome === "skipped";
         const dashedSkip = a.selectedMeaning === "--";
+        const isQuestion = Array.isArray(a.word.choices) && a.word.choices.length > 0;
+        const Icon = correct ? CheckCircle2 : skipped ? MinusCircle : XCircle;
+        const pickedLine = !correct && (
+          <p className="mt-1 text-xs text-muted-foreground">
+            {dashedSkip ? (
+              <span className="font-mono text-muted-foreground/60">-- (skipped)</span>
+            ) : (
+              <>
+                You picked: <span className="text-foreground">{a.selectedMeaning}</span>
+              </>
+            )}
+          </p>
+        );
         return (
           <motion.div
             key={a.word.id}
@@ -35,43 +48,60 @@ function ResultPanelInner({ answers }: Props) {
                   : "border-l-destructive/70 bg-destructive/5",
               )}
             >
-              <div className="flex flex-wrap items-baseline justify-between gap-2">
-                <div className="flex items-center gap-2">
-                  {correct ? (
-                    <CheckCircle2 className="h-4 w-4 shrink-0 text-success" />
-                  ) : skipped ? (
-                    <MinusCircle className="h-4 w-4 shrink-0 text-destructive" />
-                  ) : (
-                    <XCircle className="h-4 w-4 shrink-0 text-destructive" />
+              {isQuestion ? (
+                <>
+                  <div className="flex items-center gap-2">
+                    <Icon
+                      className={cn(
+                        "h-4 w-4 shrink-0",
+                        correct ? "text-success" : "text-destructive",
+                      )}
+                    />
+                    <Badge variant={correct ? "success" : "destructive"}>
+                      {correct ? "correct" : skipped ? "skipped" : "wrong"}
+                    </Badge>
+                  </div>
+                  <p className="mt-2 text-sm font-medium leading-relaxed">{a.word.word}</p>
+                  <p className="mt-2 text-xs text-muted-foreground">
+                    Answer:{" "}
+                    <span className="font-medium text-foreground">{a.word.meaning}</span>
+                  </p>
+                  {pickedLine}
+                  {a.word.explanation && (
+                    <div className="mt-2 rounded-md bg-secondary/40 px-3 py-2">
+                      <p className="text-sm leading-relaxed">{a.word.explanation}</p>
+                    </div>
                   )}
-                  <p className="text-sm font-semibold tracking-tight">{a.word.word}</p>
-                  <Badge variant={correct ? "success" : "destructive"}>
-                    {correct ? "correct" : skipped ? "skipped" : "wrong"}
-                  </Badge>
-                </div>
-                <p className="text-xs text-muted-foreground">
-                  Answer:{" "}
-                  <span className="font-medium text-foreground">{a.word.meaning}</span>
-                </p>
-              </div>
-
-              {!correct && (
-                <p className="mt-1 text-xs text-muted-foreground">
-                  {dashedSkip ? (
-                    <span className="font-mono text-muted-foreground/60">-- (skipped)</span>
-                  ) : (
-                    <>
-                      You picked:{" "}
-                      <span className="text-foreground">{a.selectedMeaning}</span>
-                    </>
-                  )}
-                </p>
+                </>
+              ) : (
+                <>
+                  <div className="flex flex-wrap items-baseline justify-between gap-2">
+                    <div className="flex items-center gap-2">
+                      <Icon
+                        className={cn(
+                          "h-4 w-4 shrink-0",
+                          correct ? "text-success" : "text-destructive",
+                        )}
+                      />
+                      <p className="text-sm font-semibold tracking-tight">{a.word.word}</p>
+                      <Badge variant={correct ? "success" : "destructive"}>
+                        {correct ? "correct" : skipped ? "skipped" : "wrong"}
+                      </Badge>
+                    </div>
+                    <p className="text-xs text-muted-foreground">
+                      Answer:{" "}
+                      <span className="font-medium text-foreground">{a.word.meaning}</span>
+                    </p>
+                  </div>
+                  {pickedLine}
+                  <div className="mt-2 rounded-md bg-secondary/40 px-3 py-2">
+                    <p className="text-sm italic">"{a.word.example}"</p>
+                    <p className="text-xs text-muted-foreground">
+                      {a.word.exampleTranslation}
+                    </p>
+                  </div>
+                </>
               )}
-
-              <div className="mt-2 rounded-md bg-secondary/40 px-3 py-2">
-                <p className="text-sm italic">"{a.word.example}"</p>
-                <p className="text-xs text-muted-foreground">{a.word.exampleTranslation}</p>
-              </div>
             </Card>
           </motion.div>
         );

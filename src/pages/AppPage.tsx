@@ -43,7 +43,7 @@ export function AppPage() {
 
   const handleRestart = useCallback(async () => {
     if (!activePackId) return;
-    const pack = (await import("@/data/manifest")).findPack(activePackId);
+    const pack = (await import("@/vocabulary/manifest")).findPack(activePackId);
     if (!pack) return;
     const words = await pack.load();
     startSession(activePackId, words);

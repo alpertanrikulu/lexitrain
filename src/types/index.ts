@@ -1,28 +1,46 @@
 export type CEFRLevel = "a1" | "a2" | "b1" | "b2" | "c1" | "c2" | "pv";
 
+/** Top-level content category shown as a section in the sidebar. */
+export type PackCategory = "vocabulary" | "kpss";
+
 export interface VocabularyWord {
   /** Stable ID: e.g. `a1_001` */
   id: string;
+  /** The prompt: a single word/phrase (vocabulary) or a full question (KPSS). */
   word: string;
+  /** The correct answer. */
   meaning: string;
   example: string;
   exampleTranslation: string;
   /** 1–5 — increases with CEFR level */
   difficulty: 1 | 2 | 3 | 4 | 5;
+  /**
+   * Fixed multiple-choice options. When present these are shown verbatim
+   * instead of generating distractors from peer items (used by KPSS).
+   */
+  choices?: string[];
+  /** Shown in results instead of the example sentence (used by KPSS). */
+  explanation?: string;
 }
 
 export interface PackManifestEntry {
   id: string;
-  level: CEFRLevel;
+  category: PackCategory;
+  /** Key of the sidebar group this pack belongs to (e.g. "a1", "kpss"). */
+  groupId: string;
   title: string;
   subtitle: string;
-  size: number;
+  /** Item count when known ahead of time. */
+  size?: number;
+  /** Display unit for `size`, e.g. "words" or "questions". */
+  unit?: string;
   /** Dynamic loader for the JSON payload. */
   load: () => Promise<VocabularyWord[]>;
 }
 
 export interface PackGroup {
-  level: CEFRLevel;
+  id: string;
+  category: PackCategory;
   label: string;
   description: string;
   packs: PackManifestEntry[];

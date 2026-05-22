@@ -1,4 +1,13 @@
-import type { CEFRLevel, PackGroup, PackManifestEntry, VocabularyWord } from "@/types";
+import type {
+  CEFRLevel,
+  PackGroup,
+  PackManifestEntry,
+  VocabularyWord,
+} from "@/types";
+
+// ---------------------------------------------------------------------------
+// Vocabulary packs (CEFR levels + phrasal verbs)
+// ---------------------------------------------------------------------------
 
 const LEVEL_META: Record<CEFRLevel, { label: string; description: string }> = {
   a1: { label: "A1 · Beginner", description: "Everyday words for survival English." },
@@ -67,7 +76,7 @@ const packModules = import.meta.glob("./*/*.json", {
   import: "default",
 }) as unknown as Record<string, () => Promise<VocabularyWord[]>>;
 
-function loaderFor(level: CEFRLevel, id: string): () => Promise<VocabularyWord[]> {
+function vocabLoader(level: CEFRLevel, id: string): () => Promise<VocabularyWord[]> {
   const key = `./${level}/${id}.json`;
   const loader = packModules[key];
   if (!loader) {
@@ -75,26 +84,106 @@ function loaderFor(level: CEFRLevel, id: string): () => Promise<VocabularyWord[]
       throw new Error(`Pack not found: ${key}`);
     };
   }
-  return loader as () => Promise<VocabularyWord[]>;
+  return loader;
 }
 
-export const PACKS: PackManifestEntry[] = PACK_DESCRIPTORS.map((d) => ({
+const VOCAB_PACKS: PackManifestEntry[] = PACK_DESCRIPTORS.map((d): PackManifestEntry => ({
   id: d.id,
-  level: d.level,
+  category: "vocabulary",
+  groupId: d.level,
   title: d.title,
   subtitle: d.subtitle,
   size: d.size,
-  load: loaderFor(d.level, d.id),
+  unit: "words",
+  load: vocabLoader(d.level, d.id),
 }));
 
-export const PACK_GROUPS: PackGroup[] = (
-  Object.keys(LEVEL_META) as CEFRLevel[]
-).map((level) => ({
-  level,
+const VOCAB_GROUPS: PackGroup[] = (Object.keys(LEVEL_META) as CEFRLevel[]).map((level) => ({
+  id: level,
+  category: "vocabulary",
   label: LEVEL_META[level].label,
   description: LEVEL_META[level].description,
-  packs: PACKS.filter((p) => p.level === level),
+  packs: VOCAB_PACKS.filter((p) => p.groupId === level),
 }));
+
+// ---------------------------------------------------------------------------
+// KPSS packs — multiple-choice questions auto-discovered from
+// `src/questions/history/*.json`. Drop in a new JSON file there and it becomes
+// a selectable topic with no code changes.
+// ---------------------------------------------------------------------------
+
+interface KpssQuestion {
+  id: string;
+  question: string;
+  choices: string[];
+  correctAnswer: string;
+  explanation: string;
+  difficulty: number;
+}
+
+function toVocabularyWord(q: KpssQuestion): VocabularyWord {
+  const difficulty = Math.min(5, Math.max(1, Math.round(q.difficulty || 1))) as 1 | 2 | 3 | 4 | 5;
+  return {
+    id: q.id,
+    word: q.question,
+    meaning: q.correctAnswer,
+    example: "",
+    exampleTranslation: "",
+    difficulty,
+    choices: q.choices,
+    explanation: q.explanation,
+  };
+}
+
+const kpssModules = import.meta.glob("../questions/history/*.json", {
+  import: "default",
+}) as unknown as Record<string, () => Promise<KpssQuestion[]>>;
+
+/** "ilk-cag" / "topic1" → "Ilk Cag" / "Topic 1". */
+function prettify(slug: string): string {
+  return slug
+    .replace(/[-_]+/g, " ")
+    .replace(/([a-zA-Z])(\d)/g, "$1 $2")
+    .replace(/\s+/g, " ")
+    .trim()
+    .replace(/\b\w/g, (c) => c.toUpperCase());
+}
+
+const KPSS_PACKS: PackManifestEntry[] = Object.entries(kpssModules)
+  .sort(([a], [b]) => a.localeCompare(b, undefined, { numeric: true }))
+  .map(([path, rawLoader]): PackManifestEntry => {
+    const slug = path.split("/").pop()!.replace(/\.json$/, "");
+    return {
+      id: `kpss-${slug}`,
+      category: "kpss",
+      groupId: "kpss",
+      title: prettify(slug),
+      subtitle: "Multiple choice",
+      unit: "questions",
+      load: async () => (await rawLoader()).map(toVocabularyWord),
+    };
+  });
+
+const KPSS_GROUPS: PackGroup[] =
+  KPSS_PACKS.length > 0
+    ? [
+        {
+          id: "kpss",
+          category: "kpss",
+          label: "KPSS",
+          description: "Multiple-choice exam questions.",
+          packs: KPSS_PACKS,
+        },
+      ]
+    : [];
+
+// ---------------------------------------------------------------------------
+// Public registry
+// ---------------------------------------------------------------------------
+
+export const PACKS: PackManifestEntry[] = [...VOCAB_PACKS, ...KPSS_PACKS];
+
+export const PACK_GROUPS: PackGroup[] = [...VOCAB_GROUPS, ...KPSS_GROUPS];
 
 export function findPack(id: string): PackManifestEntry | undefined {
   return PACKS.find((p) => p.id === id);

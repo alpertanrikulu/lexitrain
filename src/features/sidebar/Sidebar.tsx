@@ -6,7 +6,7 @@ import {
   Search,
   Sparkles,
 } from "lucide-react";
-import { memo, useMemo, useState } from "react";
+import { Fragment, memo, useMemo, useState } from "react";
 
 import { Badge } from "@/components/ui/badge";
 import { Input } from "@/components/ui/input";
@@ -19,29 +19,24 @@ import {
   TooltipProvider,
   TooltipTrigger,
 } from "@/components/ui/tooltip";
-import { PACK_GROUPS } from "@/data/manifest";
+import { PACK_GROUPS, PACKS } from "@/vocabulary/manifest";
 import { cn } from "@/lib/cn";
 import { useSessionStore } from "@/store/session";
-import type { CEFRLevel, PackManifestEntry } from "@/types";
+import type { PackCategory, PackManifestEntry } from "@/types";
 
 interface SidebarProps {
   onSelect: (pack: PackManifestEntry) => void;
   loadingPackId: string | null;
 }
 
-const initiallyOpen: Record<CEFRLevel, boolean> = {
-  a1: true,
-  a2: true,
-  b1: false,
-  b2: false,
-  c1: false,
-  c2: false,
-  pv: false,
+const CATEGORY_LABELS: Record<PackCategory, string> = {
+  vocabulary: "Vocabulary",
+  kpss: "KPSS",
 };
 
 function SidebarInner({ onSelect, loadingPackId }: SidebarProps) {
   const [query, setQuery] = useState("");
-  const [open, setOpen] = useState(initiallyOpen);
+  const [open, setOpen] = useState<Record<string, boolean>>({});
   const packProgress = useSessionStore((s) => s.packProgress);
   const activePackId = useSessionStore((s) => s.session?.packId);
 
@@ -93,13 +88,25 @@ function SidebarInner({ onSelect, loadingPackId }: SidebarProps) {
                 No packs match “{query}”.
               </p>
             )}
-            {groups.map((g) => {
-              const isOpen = open[g.level];
+            {groups.map((g, idx) => {
+              const isOpen = open[g.id] ?? false;
+              const showCategory = idx === 0 || groups[idx - 1].category !== g.category;
               return (
-                <section key={g.level}>
+                <Fragment key={g.id}>
+                  {showCategory && (
+                    <div className={cn("flex items-center gap-2 px-1", idx > 0 && "mt-2")}>
+                      <span className="text-[11px] font-bold uppercase tracking-widest text-foreground/80">
+                        {CATEGORY_LABELS[g.category]}
+                      </span>
+                      <span className="h-px flex-1 bg-border/60" />
+                    </div>
+                  )}
+                  <section>
                   <button
                     type="button"
-                    onClick={() => setOpen((s) => ({ ...s, [g.level]: !s[g.level] }))}
+                    onClick={() =>
+                      setOpen((s) => ({ ...s, [g.id]: !(s[g.id] ?? false) }))
+                    }
                     className="flex w-full items-center justify-between rounded-md px-2 py-1.5 text-left hover:bg-secondary/60 focus-ring transition-colors"
                     aria-expanded={isOpen}
                   >
@@ -150,12 +157,14 @@ function SidebarInner({ onSelect, loadingPackId }: SidebarProps) {
                                         <CircleCheck className="h-3 w-3" />
                                       </Badge>
                                     </TooltipTrigger>
-                                    <TooltipContent>All words learned</TooltipContent>
+                                    <TooltipContent>Completed</TooltipContent>
                                   </Tooltip>
                                 )}
                               </div>
                               <p className="line-clamp-1 text-[11px] text-muted-foreground">
-                                {p.subtitle} · {p.size} words
+                                {p.size
+                                  ? `${p.subtitle} · ${p.size} ${p.unit ?? "words"}`
+                                  : p.subtitle}
                               </p>
                               <Progress
                                 value={Math.min(100, Math.round(ratio * 100))}
@@ -167,7 +176,8 @@ function SidebarInner({ onSelect, loadingPackId }: SidebarProps) {
                       })}
                     </ul>
                   )}
-                </section>
+                  </section>
+                </Fragment>
               );
             })}
           </div>
@@ -181,7 +191,7 @@ function SidebarInner({ onSelect, loadingPackId }: SidebarProps) {
         >
           <Layers className="h-4 w-4 text-muted-foreground" />
           <p className="text-[11px] text-muted-foreground">
-            32 packs · 6 levels + phrasal verbs · adaptive
+            {PACKS.length} packs · Vocabulary + KPSS · adaptive
           </p>
         </motion.div>
       </aside>

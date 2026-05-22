@@ -15,7 +15,7 @@ import { memo, useMemo } from "react";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Progress } from "@/components/ui/progress";
-import { findPack } from "@/data/manifest";
+import { findPack } from "@/vocabulary/manifest";
 import { useSessionStore } from "@/store/session";
 import { useThemeStore } from "@/store/theme";
 import { formatDuration, formatPercent } from "@/utils/format";
@@ -46,8 +46,10 @@ function HeaderInner() {
             </p>
             <p className="truncate text-xs text-muted-foreground">
               {pack
-                ? `${pack.subtitle} · ${pack.size} words`
-                : "Choose a vocabulary pack from the sidebar."}
+                ? pack.size
+                  ? `${pack.subtitle} · ${pack.size} ${pack.unit ?? "words"}`
+                  : pack.subtitle
+                : "Choose a pack from the sidebar."}
             </p>
           </div>
         </div>

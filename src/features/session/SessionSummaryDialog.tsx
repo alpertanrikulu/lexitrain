@@ -10,7 +10,7 @@ import {
   DialogHeader,
   DialogTitle,
 } from "@/components/ui/dialog";
-import { findPack } from "@/data/manifest";
+import { findPack } from "@/vocabulary/manifest";
 import { useSessionStore } from "@/store/session";
 import { formatPercent } from "@/utils/format";
 

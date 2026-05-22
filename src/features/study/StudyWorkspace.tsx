@@ -7,7 +7,7 @@ import {
   Sparkles,
   XCircle,
 } from "lucide-react";
-import { memo, useCallback, useRef, useState } from "react";
+import { memo, useCallback, useEffect, useRef, useState } from "react";
 
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -30,7 +30,49 @@ function StudyWorkspaceInner({ words }: Props) {
   const finishSession = useSessionStore((s) => s.finishSession);
 
   const topRef = useRef<HTMLDivElement | null>(null);
+  const actionBarRef = useRef<HTMLDivElement | null>(null);
+  const cardRefs = useRef<Map<string, HTMLDivElement>>(new Map());
   const [busy, setBusy] = useState(false);
+  const [autoRevealIds, setAutoRevealIds] = useState<Set<string>>(new Set());
+
+  const studyPhase = session?.phase;
+  const batchCount = session?.batchCount;
+  const batchWords = session?.currentBatch;
+  const batchAnswers = session?.currentAnswers;
+
+  // Reset the auto-reveal flow whenever a new batch starts.
+  useEffect(() => {
+    setAutoRevealIds(new Set());
+  }, [batchCount]);
+
+  // After each answer, reveal the next unanswered card and scroll it into view
+  // so the learner can keep answering without manual scrolling.
+  useEffect(() => {
+    if (studyPhase !== "study" || !batchWords || !batchAnswers) return;
+    if (batchAnswers.length === 0) return;
+
+    const answered = new Set(batchAnswers.map((a) => a.word.id));
+    const lastId = batchAnswers[batchAnswers.length - 1].word.id;
+    const lastIdx = batchWords.findIndex((w) => w.id === lastId);
+    const next =
+      batchWords.slice(lastIdx + 1).find((w) => !answered.has(w.id)) ??
+      batchWords.find((w) => !answered.has(w.id));
+
+    if (next) {
+      setAutoRevealIds((prev) =>
+        prev.has(next.id) ? prev : new Set(prev).add(next.id),
+      );
+      requestAnimationFrame(() => {
+        cardRefs.current
+          .get(next.id)
+          ?.scrollIntoView({ behavior: "smooth", block: "start" });
+      });
+    } else {
+      requestAnimationFrame(() => {
+        actionBarRef.current?.scrollIntoView({ behavior: "smooth", block: "end" });
+      });
+    }
+  }, [batchAnswers, batchWords, studyPhase]);
 
   const handleAnswer = useCallback(
     (wordId: string, outcome: AnswerOutcome, selected: string | null, options: string[]) => {
@@ -107,18 +149,27 @@ function StudyWorkspaceInner({ words }: Props) {
             {currentBatch.map((word, idx) => {
               const existingAnswer = currentAnswers.find((a) => a.word.id === word.id);
               return (
-                <WordCard
+                <div
                   key={word.id}
-                  word={word}
-                  pool={words}
-                  index={idx}
-                  total={currentBatch.length}
-                  answered={answeredIds.has(word.id)}
-                  preselectedMeaning={existingAnswer?.selectedMeaning}
-                  onAnswer={(outcome, selectedMeaning, options) =>
-                    handleAnswer(word.id, outcome, selectedMeaning, options)
-                  }
-                />
+                  ref={(el) => {
+                    if (el) cardRefs.current.set(word.id, el);
+                    else cardRefs.current.delete(word.id);
+                  }}
+                  className="scroll-mt-4"
+                >
+                  <WordCard
+                    word={word}
+                    pool={words}
+                    index={idx}
+                    total={currentBatch.length}
+                    answered={answeredIds.has(word.id)}
+                    preselectedMeaning={existingAnswer?.selectedMeaning}
+                    autoReveal={autoRevealIds.has(word.id)}
+                    onAnswer={(outcome, selectedMeaning, options) =>
+                      handleAnswer(word.id, outcome, selectedMeaning, options)
+                    }
+                  />
+                </div>
               );
             })}
           </motion.div>
@@ -138,7 +189,10 @@ function StudyWorkspaceInner({ words }: Props) {
       </AnimatePresence>
 
       {/* Action bar */}
-      <Card className="flex flex-col items-center gap-3 p-5 lg:flex-row lg:justify-between">
+      <Card
+        ref={actionBarRef}
+        className="flex flex-col items-center gap-3 p-5 lg:flex-row lg:justify-between"
+      >
         <p className="text-sm text-muted-foreground">
           {phase === "results"
             ? "Review your answers, then continue to the next batch."
